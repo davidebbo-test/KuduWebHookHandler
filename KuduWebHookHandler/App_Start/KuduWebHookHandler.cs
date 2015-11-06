@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Diagnostics;
+using System.Threading.Tasks;
 using Microsoft.AspNet.WebHooks;
 
 namespace KuduWebHookHandler.App_Start
@@ -20,6 +21,8 @@ namespace KuduWebHookHandler.App_Start
 
             // Get the notification author
             string author = notification.Author;
+
+            Trace.TraceInformation($"Author: {author}, message: {message}");
 
             return Task.FromResult(true);
         }
